@@ -33,8 +33,8 @@
   "homepage": "https://github.com/PFight/derivable-alina#readme",
   "dependencies": {
     "derivable": "^0.12.1",
-    "alina-core": "file:../alina-core/alina-core-0.0.1.tgz",
-    "alina-std": "file:../alina-std/alina-std-0.0.1.tgz"
+    "alina-core": "^0.0.1",
+    "alina-std": "^0.0.1"
   },
   "devDependencies": {
     "uglify-js": "^3.1.6",
