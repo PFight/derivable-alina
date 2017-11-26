@@ -1,0 +1,42 @@
+{
+  "name": "derivable-alina",
+  "version": "0.0.1",
+  "description": "DerivableJS extensions for AlinaJS",
+  "main": "src/derivable-alina.js",
+  "scripts": {
+    "compile": "tsc -p tsconfig.json",
+    "build-dts": "tsc -p tsconfig.dts.json && rm dist/derivable-alina",
+    "bundle": "rollup -c rollup-config.js src/derivable-alina.js -o dist/derivable-alina-es6.js",
+    "transpile": "tsc dist/derivable-alina-es6.js --outFile dist/derivable-alina.js --allowJS --target es5 && rm dist/derivable-alina-es6.js",
+    "uglify": "uglifyjs ./dist/derivable-alina.js -o ./dist/derivable-alina.min.js",
+    "build": "rm -rf dist && npm run compile && npm run build-dts && npm run bundle && npm run transpile && npm run uglify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PFight/derivable-alina.git"
+  },
+  "keywords": [
+    "html",
+    "render",
+    "derivablejs",
+    "alinajs"
+  ],
+  "author": "PFight <PFight77@gmail.com> (https://github.com/PFight)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PFight/derivable-alina/issues"
+  },
+  "homepage": "https://github.com/PFight/derivable-alina#readme",
+  "dependencies": {
+    "derivable": "^0.12.1"
+  },
+  "devDependencies": {
+    "uglify-js": "^3.1.6",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "typescript": {
+    "definition": "dist/derivable-alina.d.ts"
+  },
+  "typings": "dist/derivable-alina.d.ts"
+}
