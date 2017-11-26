@@ -1,6 +1,6 @@
-﻿import * as Alina from "alina";
+﻿import * as Alina from "alina-std";
 import * as D from "derivable";
-import * as DA from "./derivable-alina";
+import * as DA from "../derivable-alina";
 
 export class DSet extends DA.AlinaComponent {
   setEntry<T>(value: T | D.Derivable<T>) {

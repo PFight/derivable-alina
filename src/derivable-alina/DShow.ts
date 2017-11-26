@@ -1,6 +1,6 @@
-﻿import * as Alina from "alina";
+﻿import * as Alina from "alina-std";
 import * as D from "derivable";
-import * as DA from "./derivable-alina";
+import * as DA from "../derivable-alina";
 
 export class DShow extends DA.AlinaComponent {
   showIf(value: boolean | D.Derivable<boolean>) {

@@ -9,9 +9,9 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('alina'), require('derivable')) :
-        typeof define === 'function' && define.amd ? define(['exports', 'alina', 'derivable'], factory) :
-            (factory((global.alina = {}), global.Alina, global.D));
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('alina-std'), require('derivable')) :
+        typeof define === 'function' && define.amd ? define(['exports', 'alina-std', 'derivable'], factory) :
+            (factory((global.alina = {}), global.AlStd, global.derivable));
 }(this, (function (exports, Alina, D) {
     'use strict';
     var AlinaComponent$1 = /** @class */ (function (_super) {

@@ -3,14 +3,17 @@
   "version": "0.0.1",
   "description": "DerivableJS extensions for AlinaJS",
   "main": "src/derivable-alina.js",
+  "module": "dist/derivable-alina-es.js",
   "scripts": {
     "compile": "tsc -p tsconfig.json",
     "build-dts": "tsc -p tsconfig.dts.json && rm dist/derivable-alina",
-    "bundle": "rollup -c rollup-config.js src/derivable-alina.js -o dist/derivable-alina-es6.js",
-    "transpile": "tsc dist/derivable-alina-es6.js --outFile dist/derivable-alina.js --allowJS --target es5 && rm dist/derivable-alina-es6.js",
+    "bundle": "rollup -c rollup-config.js src/derivable-alina.js -o dist/derivable-alina-es.js",
+    "bundle-umd": "rollup -c rollup-config-umd.js src/derivable-alina.js -o dist/derivable-alina-es6.js",
+    "transpile": "tsc dist/derivable-alina-es6.js --outFile dist/derivable-alina.js --allowJS --target es5  && rm dist/derivable-alina-es6.js",
     "uglify": "uglifyjs ./dist/derivable-alina.js -o ./dist/derivable-alina.min.js",
-    "build": "rm -rf dist && npm run compile && npm run build-dts && npm run bundle && npm run transpile && npm run uglify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && npm run compile && npm run build-dts && npm run bundle && npm run bundle-umd && npm run transpile && npm run uglify && npm run pack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "rm -f alina-0.0.1.tgz || true && npm pack"
   },
   "repository": {
     "type": "git",
@@ -29,14 +32,13 @@
   },
   "homepage": "https://github.com/PFight/derivable-alina#readme",
   "dependencies": {
-    "derivable": "^0.12.1"
+    "derivable": "^0.12.1",
+    "alina-core": "file:../alina-core/alina-core-0.0.1.tgz",
+    "alina-std": "file:../alina-std/alina-std-0.0.1.tgz"
   },
   "devDependencies": {
     "uglify-js": "^3.1.6",
     "rollup-plugin-node-resolve": "^3.0.0"
-  },
-  "typescript": {
-    "definition": "dist/derivable-alina.d.ts"
   },
   "typings": "dist/derivable-alina.d.ts"
 }

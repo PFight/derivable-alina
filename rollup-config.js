@@ -1,10 +1,11 @@
 var nodeResolve = require('rollup-plugin-node-resolve');
+var packageJson = require('./package.json');
 
 module.exports = {
   sourceMap: false,
   treeshake: false,
   output: {
-    format: 'umd'
+    format: 'es'
   },
   name: "alina",
   context: 'window',
@@ -13,7 +14,8 @@ module.exports = {
         jsnext: true, main: true, module: true, browser: true
     })
   ],
-  external: ['alina', 'derivable'],
+  external: Object.keys(packageJson.dependencies),
+  globals: { derivable: 'derivable', alina: 'Alina', "alina-std": "AlStd" },
   onwarn: function ( message ) {
     console.warn( message );
   }

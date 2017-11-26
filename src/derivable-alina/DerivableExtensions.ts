@@ -1,6 +1,6 @@
-﻿import * as Alina from "alina";
+﻿import * as Alina from "alina-std";
 import * as D from "derivable";
-import * as DA from "./derivable-alina";
+import * as DA from "../derivable-alina";
 
 export interface DerivableExtensions {
   set<T>(stub: string, value: T | D.Derivable<T>): void;
@@ -37,24 +37,24 @@ function on<T>(this: Alina.Alina, value: T | D.Derivable<T>, callback: (renderer
   }
 }
 
-function set<T>(this: Alina.NodeContext, stub: string, value: T | D.Derivable<T>): void {
+function set<T>(this: Alina.Alina, stub: string, value: T | D.Derivable<T>): void {
   this.mount(Alina.AlEntry).getEntries(stub, (context) => {
     context.mount(DA.DSet).setEntry(value);
   });
 }
 
-function setOnce<T>(this: Alina.NodeContext, stub: string, value: T | D.Derivable<T>): void {
+function setOnce<T>(this: Alina.Alina, stub: string, value: T | D.Derivable<T>): void {
   this.mount(Alina.AlEntry).getEntries(stub, (context) => {
     context.mount(DA.DSet).setEntryOnce(value);
   });
 }
 
-function repeat<T>(this: Alina.NodeContext, templateSelector: string, items: T[] | D.Derivable<T[]>, update: (renderer, model: T) => void): void {
+function repeat<T>(this: Alina.Alina, templateSelector: string, items: T[] | D.Derivable<T[]>, update: (renderer, model: T) => void): void {
   this.mount(Alina.AlQuery).query(templateSelector)
     .mount(DA.DRepeat).repeat(items, update);
 }
 
-function showIf(this: Alina.NodeContext, templateSelector: string, value: boolean | D.Derivable<boolean>): void {
+function showIf(this: Alina.Alina, templateSelector: string, value: boolean | D.Derivable<boolean>): void {
   this.mount(Alina.AlQuery).query(templateSelector)
     .mount(DA.DShow).showIf(value);
 }

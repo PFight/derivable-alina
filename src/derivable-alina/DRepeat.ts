@@ -1,6 +1,6 @@
-﻿import * as Alina from "alina";
+﻿import * as Alina from "alina-std";
 import * as D from "derivable";
-import * as DA from "./derivable-alina";
+import * as DA from "../derivable-alina";
 
 export class DRepeat extends DA.AlinaComponent {
   repeat<T>(items: T[] | D.Derivable<T[]>, update: (renderer: Alina.Alina, model: T) => void, options?: Alina.RepeatExtraOptions<T>) {
