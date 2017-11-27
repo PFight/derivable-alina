@@ -2,7 +2,7 @@
   "name": "derivable-alina",
   "version": "0.0.1",
   "description": "DerivableJS extensions for AlinaJS",
-  "main": "src/derivable-alina.js",
+  "main": "dist/derivable-alina.js",
   "module": "dist/derivable-alina-es.js",
   "scripts": {
     "compile": "tsc -p tsconfig.json",
